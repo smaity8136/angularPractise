@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "subscription": {
+    "directive-test": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/subscription",
+            "outputPath": "dist/directive-test",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,20 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "subscription:build",
-            "port": 4600
+            "browserTarget": "directive-test:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "subscription:build:production"
-              
+              "browserTarget": "directive-test:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "subscription:build"
+            "browserTarget": "directive-test:build"
           }
         },
         "test": {
@@ -113,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "subscription:serve"
+            "devServerTarget": "directive-test:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "subscription:serve:production"
+              "devServerTarget": "directive-test:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "subscription"
+  "defaultProject": "directive-test"
 }

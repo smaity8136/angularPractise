@@ -1,0 +1,9 @@
+<p>lab html-editor</p>
+<!-- <textarea [(ngModel)]="userInput"  rows="5" cols="40"></textarea> -->
+<textarea [ngModel]="userInput" (ngModelChange)="updateHTML($event)" rows="5" cols="40"></textarea>
+
+<h4> Preview</h4>
+<div [innerHTML] = "userInput"></div>
+
+<h4>Raw Text</h4>
+<pre>{{userInput}}</pre>
