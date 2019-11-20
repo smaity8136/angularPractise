@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormControl } from '@angular/forms'
 
+import { Subscription } from '@'
+
 @Component({
   selector: 'app-testcomponent',
   templateUrl: './testcomponent.component.html',
@@ -10,6 +12,7 @@ import { FormGroup, FormControl } from '@angular/forms'
 export class TestcomponentComponent implements OnInit {
 
   myForm: FormGroup
+  valueSubscription: Subscription
 
   constructor() { }
 
