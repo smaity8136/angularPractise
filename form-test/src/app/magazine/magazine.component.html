@@ -1,0 +1,24 @@
+<p>magazine works!</p>
+Full name:<br/>
+<input type="text" [(ngModel)]="fullName" /> <br/>
+
+Magazine edition: <br/>
+<select [(ngModel)]="selectedEdition">
+    <option *ngFor="let e of editions"
+    [ngValue] = "e">{{e.editionName}}</option>
+</select><br/>
+
+Shipping option:
+<input type="radio" name="selectedShipping"
+   [(ngModel)]="selectedShipping" value="GROUND" />Ground
+<input type="radio" name="selectedShipping"
+   [(ngModel)]="selectedShipping" value="AIR" />Air
+<br/>
+
+<label>
+    <input type ="checkbox" [(ngModel)]="acceptPolicy" />
+    I accept the terms and conditions</label><br/>
+<br/>
+Price: {{selectedEdition.price}}  
+<br/>
+<button (click)="submitForm()">Purchase</button>
