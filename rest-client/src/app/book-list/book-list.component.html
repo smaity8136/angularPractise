@@ -1,0 +1,17 @@
+<p>book-list works!</p>
+<h3>Book Library</h3>
+<div>
+    <button [routerLink]="['/add-book']">Add a Book</button>
+</div>
+
+<div *ngIf="books.length > 0" >
+   <div *ngFor="let book of books">
+       {{book.isbn}} - {{book.title}} <b>{{book.price}}</b>
+       <button (click)="deleteBook(book)">Delete</button>
+       <button [routerLink]="['/edit-book',book.isbn]">EDIT</button>
+   </div>
+</div>
+
+<div *ngIf="books.length == 0">
+    There are no books in thelibrary.
+</div>
