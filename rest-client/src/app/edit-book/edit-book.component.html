@@ -3,16 +3,16 @@
 <div *ngIf="book != undefined">
 
     <div>
-        <input type="text" [(ngModel)]="book.isbn" placeholder="ISBN">
+        <input class="form-control" type="text" [(ngModel)]="book.isbn" placeholder="ISBN">
     </div>
     <div>
-        <input type="text" [(ngModel)]="book.title" placeholder="Title">
+        <input class="form-control" type="text" [(ngModel)]="book.title" placeholder="Title">
     </div>
     <div>
-        <input type="number" [(ngModel)]="book.price" placeholder="Price">
+        <input class="form-control" type="number" [(ngModel)]="book.price" placeholder="Price">
     </div>
     <div>
-        <button (click)="updateBook()">Save</button>
+        <button class="btn-primary" (click)="updateBook()">Save</button>
     </div>
 
 

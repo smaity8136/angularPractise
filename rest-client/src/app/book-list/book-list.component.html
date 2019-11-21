@@ -1,15 +1,18 @@
 <p>book-list works!</p>
 <h3>Book Library</h3>
 <div>
-    <button [routerLink]="['/add-book']">Add a Book</button>
+    <button class="btn-primary" [routerLink]="['/add-book']">Add a Book</button>
 </div>
 
 <div *ngIf="books.length > 0" >
-   <div *ngFor="let book of books">
+   <div *ngFor="let book of getDisplayList()">
        {{book.isbn}} - {{book.title}} <b>{{book.price}}</b>
-       <button (click)="deleteBook(book)">Delete</button>
-       <button [routerLink]="['/edit-book',book.isbn]">EDIT</button>
+       <button class="btn-danger" (click)="deleteBook(book)" placement="top" ngbTooltip="Delete the Book">DELETE</button>
+       <button [routerLink]="['/edit-book',book.isbn]" placement="top" ngbTooltip="Edit the Book">EDIT</button>
    </div>
+
+   <ngb-pagination [collectionSize] = "books.length"
+   [pageSize]="pageSize" [(page)] = "page"></ngb-pagination>
 </div>
 
 <div *ngIf="books.length == 0">

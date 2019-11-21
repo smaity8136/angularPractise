@@ -8,9 +8,11 @@ import { DataService, Book } from '../data.service'
 })
 export class BookListComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
-
   books: Book[] = []
+  private page = 1
+  private pageSize = 4
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.dataService.getBooks().subscribe( bookList =>{
@@ -20,6 +22,11 @@ export class BookListComponent implements OnInit {
     )
   }
 
+  getDisplayList() : Book[]{
+    return this.books.slice(
+     ( this.page - 1) * this.pageSize, this.page * this.pageSize
+    )
+  }
 
   deleteBook(book: Book){
     if(!window.confirm('Are you sure you want to delete this item?')){
@@ -29,6 +36,9 @@ export class BookListComponent implements OnInit {
     this.dataService.deleteBook(book.isbn).subscribe(_ =>{
       //Delete local copy of the book
       this.books = this.books.filter(b => b.isbn != book.isbn)
+    },
+    err =>{
+      alert(err)
     })
   }
 
