@@ -9,8 +9,8 @@ import { DataService, Book } from '../data.service'
 export class BookListComponent implements OnInit {
 
   books: Book[] = []
-  private page = 1
-  private pageSize = 4
+   page = 1
+   pageSize = 4
 
   constructor(private dataService: DataService) { }
 
